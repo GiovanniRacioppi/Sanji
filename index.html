@@ -8,6 +8,20 @@
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
 </head>
 <body>
+
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then(reg => {
+          console.log("Service Worker registrato:", reg.scope);
+        }).catch(err => {
+          console.error("Errore Service Worker:", err);
+        });
+      });
+    }
+  </script>
+
     <div id="game-container">
         <div id="game-canvas"></div>
         <div id="progress-container">
